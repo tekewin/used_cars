@@ -1,4 +1,4 @@
-# used_cars
+# used_cars machine learning model
 Used cars dataset (Kaggle) machine learning model to predict price.
 
 The Jupyter notebook used_cars.ipynb demonstrates core data science analysis and machine learning skills. It features standard libraries: numpy, pandas, matplotlib, seaborn, and scikit-learn.
