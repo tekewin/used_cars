@@ -12,7 +12,7 @@ After cleaning, feature engineering, and categorical one-hot encoding, the dataf
 With iterative trial and error, I explored basic regressions, RandomForestRegressor, and XGBRegressor models on the price. I found the best results from XGBRegressor. I proceeded to use a 
 grid search to find the best hyperparameters. 
 
-![age histogram](user-cars-age-histogram.png)
+![age histogram](used-cars-age-histogram.png)
 
 ![price histogram](used-cars-price-histogram.png)
 
