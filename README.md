@@ -20,7 +20,7 @@ grid search to find the best hyperparameters.
 
 ![log(price) histogram](used-cars-log-price-histogram.png)
 
-Development was done on Google CoLab and also locally on an Ububtu 24 LTS workstation. I ran more exhaustive grid searches with suggestions from OpenAI O1. The longer grid searches were run locally due to limited free resources on CoLab, but did not show significant improvements.
+Development was done on Google CoLab and also locally on a Linux workstation. I ran more exhaustive grid searches with suggestions from OpenAI O1. The longer grid searches were run locally due to limited free resources on CoLab, but did not show significant improvements.
 
 ![most importance features](used-car-feature-importances.png)
 
