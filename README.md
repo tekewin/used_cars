@@ -32,7 +32,6 @@ Models were evaluated using R-squared and mean absolute error.
 
 The notebook can still be improved by better design for handling new, outside data for predictions. Also, the engine feature could be broken into engine_hp and engine_displacement. I only used engine_hp.
 
-Feel free to make improvements.
 
 
 
