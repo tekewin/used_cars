@@ -1,4 +1,4 @@
-# used_cars predicting price using RandomForestRegressor
+# Predicting used car prices with a RandomForestRegressor
 Used cars dataset (Kaggle) machine learning model to predict price.
 
 The Jupyter notebook used_cars.ipynb demonstrates core data science analysis and machine learning skills. It features standard libraries: numpy, pandas, matplotlib, seaborn, and scikit-learn.
