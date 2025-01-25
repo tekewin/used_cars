@@ -1,16 +1,21 @@
-# Predicting used car prices with a RandomForestRegressor
+# Predicting used car prices with multiple regression
 Used cars dataset (Kaggle) machine learning model to predict price.
 
 The Jupyter notebook used_cars.ipynb demonstrates core data science analysis and machine learning skills. It features standard libraries: numpy, pandas, matplotlib, seaborn, and scikit-learn.
 
-After cleaning, feature engineering, and categorical one-hot encoding, the dataframe ended up with 1931 features. Three columns had missing values that were handled in various ways. Extreme outliers (99% percentile) in milage and price were dropped. I also got better results by using the natural log of price.
+I experimented with three different models. First was RandomForestRegressor with categoricals one-hot encoded. It had a mid-range R-squared and mean absolute error. 
+Next, I used an XGBoost model and it performed slightly better, with a higher R-square and lower MAE.
+For each machine learning model, I used a grid search to find the best parameters.
+
+Finally, I tried multiple regression. This model had the highest R-squared (though there might be some overfitting). 
+I tested regression assumptions.
+
+After cleaning and feature engineering, I handled three columns with missing values in various ways. Extreme outliers (99% percentile) in milage and price were dropped. 
+I got better results by using the natural log of price.
 
 ![info](used-cars-info.png)
 
 ![info-2](used-cars-info-2.png)
-
-With iterative trial and error, I explored basic regressions, RandomForestRegressor, and XGBRegressor models on the price. I found the best results from XGBRegressor. I proceeded to use a 
-grid search to find the best hyperparameters. 
 
 ![age histogram](used-cars-age-histogram.png)
 
@@ -20,15 +25,15 @@ grid search to find the best hyperparameters.
 
 ![log(price) histogram](used-cars-log-price-histogram.png)
 
-Development was done on Google CoLab and also locally on a Linux workstation. I ran more exhaustive grid searches with suggestions from OpenAI O1. The longer grid searches were run locally due to limited free resources on CoLab, but did not show significant improvements.
+Development was done on Google CoLab and also locally on a Linux workstation. I ran more exhaustive grid searches, but those were run locally due to limited free resources on CoLab, and did not show significant improvements. Price predictions were similar, but predicted prices using multiple regression were a little lower. 
 
 ![importances](https://github.com/user-attachments/assets/81467431-3f0c-4d10-80db-810458470716)
 
-Models were evaluated using R-squared and mean absolute error.
+Models were evaluated using adjusted R-squared and mean absolute error.
 
-**R-squared Score: 0.7312**
+**Adjusted R-squared Score: 0.942**
 
-The notebook can still be improved by better design for handling new, outside data for predictions. Also, the engine feature could be broken into engine_hp and engine_displacement. I only used engine_hp.
+The notebook can still be improved.
 
 
 
