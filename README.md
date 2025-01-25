@@ -7,7 +7,7 @@ I experimented with three different models. First was RandomForestRegressor with
 Next, I used an XGBoost model and it performed slightly better, with a higher R-square and lower MAE.
 For each machine learning model, I used a grid search to find the best parameters.
 
-Finally, I tried multiple regression. This model had the highest R-squared (though there might be some overfitting). 
+Finally, I tried multiple regression. This model had a very high adjusted R-squared (though there might be some overfitting). 
 I tested regression assumptions.
 
 After cleaning and feature engineering, I handled three columns with missing values in various ways. Extreme outliers (99% percentile) in milage and price were dropped. 
