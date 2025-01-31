@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Used Car Price Prediction</title>
+
+<style>
+    form {
+        margin-left: 15px;
+    }
+    button {
+        background-color: lightgreen;
+        border: none;
+        padding: 10px 15px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+    button:hover {
+        background-color: green;
+        color: white;
+    }
+</style>
+
+</head>
+<body>
+    <h2>Used Car Price Prediction</h2>
+    <form action="/predict" method="post">
+        <label for="brand">Brand:</label>
+        <select id="brand" name="brand" onchange="updateModels()">
+            {% for brand in brands %}
+            <option value="{{ brand }}">{{ brand }}</option>
+            {% endfor %}
+        </select>
+        <br>
+        <label for="model">Model:</label>
+        <select id="model" name="model">
+            {% for model in models[brands[0]] %}
+            <option value="{{ model }}">{{ model }}</option>
+            {% endfor %}
+        </select>
+        <br>
+        <label for="milage">Milage:</label>
+        <input type="number" id="milage" name="milage" required>
+        <br>
+        <label for="fuel_type">Fuel Type:</label>
+        <select id="fuel_type" name="fuel_type">
+            <option value="Gasoline">Gasoline</option>
+            <option value="Diesel">Diesel</option>
+            <option value="Hybrid">Hybrid</option>
+            <option value="Electric">Electric</option>
+        </select>
+        <br>
+        <label for="accident">Accident:</label>
+        <select id="accident" name="accident">
+            <option value="At least 1 accident or damage reported">Yes</option>
+            <option value="None reported">No</option>
+        </select>
+        <br>
+        <label for="clean_title">Clean Title:</label>
+        <select id="clean_title" name="clean_title">
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+        </select>
+        <br>
+        <label for="age">Car Age (Years):</label>
+        <input type="number" id="age" name="age" required>
+        <br>
+        <label for="engine_hp">Engine HP:</label>
+        <input type="number" id="engine_hp" name="engine_hp" required>
+        <br>
+        <label for="transmission_clean">Transmission:</label>
+        <select id="transmission_clean" name="transmission_clean">
+            <option value="Automatic">Automatic</option>
+            <option value="Manual">Manual</option>
+        </select>
+        <br><br>
+        <button type="submit">Predict Price</button>
+    </form>
+    <div id="result"></div>
+
+    <script>
+        var modelData = {{ models | tojson }};
+        function updateModels() {
+            var brand = document.getElementById("brand").value;
+            var modelSelect = document.getElementById("model");
+            modelSelect.innerHTML = "";
+            modelData[brand].forEach(function(model) {
+                var option = document.createElement("option");
+                option.value = model;
+                option.textContent = model;
+                modelSelect.appendChild(option);
+            });
+        }
+
+    document.querySelector("form").addEventListener("submit", function(event) {
+        event.preventDefault();
+    
+        var formData = new FormData(this);
+    
+        fetch("/predict", {
+            method: "POST",
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById("result").innerHTML = `<h3>Predicted Price: <strong>${data.predicted_price}</strong></h3>`;
+        })
+        .catch(error => console.error("Error:", error));
+    });
+
+    </script>
+</body>
+</html>
