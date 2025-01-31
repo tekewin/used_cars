@@ -6,6 +6,7 @@ The two notebooks demonstrate core data science analysis and machine learning sk
 After completing the model, I saved it (360 MB pickled) and wrote a demo web app using flask to feed data to the model and get the price prediction back. The model was not saved to the repository, but it can be created by running the Jupyter notebook used_cars_multiple_regression.
 
 ![info](used-car-web.png)
+
 I experimented with three different models. First was RandomForestRegressor with categoricals one-hot encoded. It had a mid-range R-squared and mean absolute error. 
 Next, I used an XGBoost model and it performed slightly better, with a higher R-square and lower MAE.
 For each machine learning model, I used a grid search to find the best parameters.(Jupyter notebook used_cars.ipynb)
