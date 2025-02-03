@@ -8,10 +8,10 @@ After completing the model, I saved it (360 MB pickled) and wrote a demo web app
 ![info](used-car-web.png)
 
 I experimented with three different models. First was RandomForestRegressor with categoricals one-hot encoded. It had a mid-range R-squared and mean absolute error. 
-Next, I used an XGBoost model and it performed slightly better, with a higher R-square and lower MAE.
-For each machine learning model, I used a grid search to find the best parameters.(Jupyter notebook used_cars.ipynb)
+Next, I used an XGBoost model and it performed slightly better, with a higher R-squared and lower MAE.
+For each machine learning model, I used a grid search to find the best parameters. (Jupyter notebook used_cars.ipynb)
 
-Finally, I tried multiple regression. This model had a very high adjusted R-squared (might be some overfitting), and I tested regression assumptions. (Jupyter notebook used_cars_multiple_regression).
+Finally, I tried multiple regression. This model had a very high adjusted R-squared (maybe overfitting), and I tested regression assumptions. (Jupyter notebook used_cars_multiple_regression).
 
 After cleaning and feature engineering, I handled three columns with missing values in various ways. Extreme outliers (99% percentile) in milage and price were dropped. 
 I got the best results by using the natural log of price.
